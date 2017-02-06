@@ -1,6 +1,13 @@
+import Woowahan from 'woowahan';
+import Home from './views/home';
+import Hello from './views/hello';
 
-import woowahan from 'woowahan';
+global.$ = global.jQuery = Woowahan.$;
 
-let app = woowahan();
+let app = new Woowahan();
 
-app.start({}, {});
+app.start({
+  url: '/', view: Home, container: '#app', pages: [
+    { url: 'hello', view: Hello, container: '#app' }
+  ]
+});
